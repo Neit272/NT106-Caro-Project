@@ -20,6 +20,8 @@ namespace Game_Caro
         private bool _isRunning;
 
         private Dictionary<string, TcpClient> _connectedClients = new Dictionary<string, TcpClient>();
+        private Dictionary<TcpClient, string> _clientUsernames = new Dictionary<TcpClient, string>();
+
         private Queue<TcpClient> _clientQueue = new Queue<TcpClient>();
 
         public Server()
@@ -62,6 +64,7 @@ namespace Game_Caro
 
             var username = message.Substring(9);
             _connectedClients[username] = client;
+            _clientUsernames[client] = username;
 
             AppendToMonitor("Client " + username + " connected!");
 
@@ -72,6 +75,7 @@ namespace Game_Caro
                 {
                     AppendToMonitor("Client " + username + " disconnected!");
                     _connectedClients.Remove(username);
+                    _clientUsernames.Remove(client);
                     client.Close();
                     return;
                 }
@@ -83,6 +87,7 @@ namespace Game_Caro
                     _clientQueue.Enqueue(client);
 
                     AppendToMonitor("Client " + username + " added to queue!");
+                    TryStartGame();
                 }
                 else if (message.StartsWith("dequeue:"))
                 {
@@ -91,10 +96,38 @@ namespace Game_Caro
                         _clientQueue = new Queue<TcpClient>(_clientQueue.Where(c => c != client));
 
                         AppendToMonitor("Client " + username + " removed from queue!");
+                        TryStartGame();
                     }
                 }
             }
         }
+
+        private void TryStartGame()
+        {
+            if (_clientQueue.Count >= 2)
+            {
+                var client1 = _clientQueue.Dequeue();
+                var client2 = _clientQueue.Dequeue();
+
+                var client1EndPoint = (IPEndPoint)client1.Client.RemoteEndPoint;
+                var client2EndPoint = (IPEndPoint)client2.Client.RemoteEndPoint;
+
+                var client1Username = _clientUsernames[client1];
+                var client2Username = _clientUsernames[client2];
+
+                SendClientInfo(client1, client2Username, client2EndPoint.Address.ToString(), client2EndPoint.Port);
+                SendClientInfo(client2, client1Username, client1EndPoint.Address.ToString(), client1EndPoint.Port);
+            }
+        }
+
+        private void SendClientInfo(TcpClient client, string opponentUsername, string ipAddress, int port)
+        {
+            var stream = client.GetStream();
+            var clientInfoMessage = "opponentInfo:" + opponentUsername + ":" + ipAddress + ":" + port;
+            var messageBytes = Encoding.UTF8.GetBytes(clientInfoMessage);
+            stream.Write(messageBytes, 0, messageBytes.Length);
+        }
+
         private void AppendToMonitor(string message)
         {
             if (InvokeRequired)

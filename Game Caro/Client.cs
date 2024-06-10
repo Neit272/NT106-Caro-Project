@@ -103,6 +103,17 @@ namespace Game_Caro
                     {
                         var messageType = message.Substring(0, message.IndexOf(":"));
                         message = message.Substring(message.IndexOf(":") + 1);
+
+                        if (messageType == "opponentInfo")
+                        {
+                            var infoParts = message.Split(':');
+                            var opponentUsername = infoParts[0];
+                            var opponentIpAddress = infoParts[1];
+                            var opponentPort = int.Parse(infoParts[2]);
+
+                            GameCaro gameCaro = new GameCaro(opponentUsername, opponentIpAddress, opponentPort); //opponentUsername, opponentIpAddress, opponentPort
+                            gameCaro.Show();
+                        }
                     }
                 }
                 catch (IOException)

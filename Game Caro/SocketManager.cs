@@ -21,11 +21,11 @@ namespace Game_Caro
             {
                 client.Connect(iep);
                 return true;
-            }                
+            }
             catch
             {
                 return false;
-            } 
+            }
         }
         #endregion
 
@@ -37,10 +37,20 @@ namespace Game_Caro
             server = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
 
             server.Bind(iep);
-            server.Listen(10); // Đợi kết nối client trong 10s nếu ko có thì bỏ
+            server.Listen(1);
 
-            Thread AcceptClient = new Thread(() => { try { client = server.Accept(); } catch { } });
-            AcceptClient.IsBackground = true; // Để khi chương trình tắt ngang thì Thread cũng tự tắt
+            Thread AcceptClient = new Thread(() =>
+            {
+                try
+                {
+                    client = server.Accept();
+                    server.Close();
+                }
+                catch
+                {
+                }
+            });
+            AcceptClient.IsBackground = true;
             AcceptClient.Start();
         }
         #endregion
@@ -123,8 +133,9 @@ namespace Game_Caro
             {
                 server.Close();
                 client.Close();
-            } catch { }
-            
+            }
+            catch { }
+
         }
         #endregion
     }
