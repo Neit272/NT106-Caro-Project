@@ -8,13 +8,11 @@ namespace Game_Caro
         private Image avatar;
         private Image symbol;
         public string Name { get => name; set => name = value; }        
-        public Image Avatar { get => avatar; set => avatar = value; }
         public Image Symbol { get => symbol; set => symbol = value; }
 
-        public Player(string name, Image avatar, Image symbol)
+        public Player(string name, Image symbol)
         {
             this.Name = name;
-            this.Avatar = avatar;
             this.Symbol = symbol;
         }
     }

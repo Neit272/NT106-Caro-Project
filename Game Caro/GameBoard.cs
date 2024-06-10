@@ -94,20 +94,18 @@ namespace Game_Caro
         #endregion
 
         #region Initialize
-        public GameBoard(Panel board, TextBox PlayerName, PictureBox Avatar)
+        public GameBoard(Panel board, TextBox PlayerName)
         {
             this.Board = board;
             this.PlayerName = PlayerName;
-            this.Avatar = Avatar;
+            //this.Avatar = Avatar;
 
             this.CurrentPlayer = 0;
             this.ListPlayers = new List<Player>()
             {
-                new Player("Quân Đặng", Image.FromFile(Application.StartupPath + "\\images\\Quan.jpg"),
-                                        Image.FromFile(Application.StartupPath + "\\images\\X.png")),
+                new Player("Player 1", Image.FromFile(Application.StartupPath + "\\images\\X.png")),
 
-                new Player("Bà Xã", Image.FromFile(Application.StartupPath + "\\images\\Lisa.jpg"),
-                                   Image.FromFile(Application.StartupPath + "\\images\\O.png"))
+                new Player("Player 2", Image.FromFile(Application.StartupPath + "\\images\\O.png"))
             };       
         }      
         #endregion
@@ -514,7 +512,7 @@ namespace Game_Caro
         private void ChangePlayer()
         {
             PlayerName.Text = ListPlayers[CurrentPlayer].Name;
-            Avatar.Image = ListPlayers[CurrentPlayer].Avatar;
+            //Avatar.Image = ListPlayers[CurrentPlayer].Avatar;
         }
 
         private void btn_Click(object sender, EventArgs e)
