@@ -13,12 +13,14 @@ namespace Game_Caro
         SocketManager socket;
         string PlayerName;
 
-        public GameCaro()
+        public GameCaro(string username)
         {
             InitializeComponent();
             Control.CheckForIllegalCrossThreadCalls = false;
 
-            board = new GameBoard(pn_GameBoard, txt_PlayerName, pb_Avatar);            
+            PlayerName = username;
+
+            board = new GameBoard(pn_GameBoard, txt_PlayerName, pb_Avatar);
             board.PlayerClicked += Board_PlayerClicked;
             board.GameOver += Board_GameOver;
 
@@ -77,13 +79,14 @@ namespace Game_Caro
                 try
                 {
                     socket.Send(new SocketData((int)SocketCommand.QUIT, "", new Point()));
-                } catch { }
+                }
+                catch { }
             }
         }
 
         private void Board_PlayerClicked(object sender, BtnClickEvent e)
         {
-            tm_CountDown.Start(); 
+            tm_CountDown.Start();
             pgb_CountDown.Value = 0;
 
             if (board.PlayMode == 1)
@@ -127,7 +130,7 @@ namespace Game_Caro
 
                 if (board.PlayMode == 1)
                     socket.Send(new SocketData((int)SocketCommand.TIME_OUT, "", new Point()));
-            }                                    
+            }
         }
 
         private void Tm_About_Tick(object sender, EventArgs e)
@@ -151,7 +154,7 @@ namespace Game_Caro
                 }
                 catch { }
             }
-                
+
             pn_GameBoard.Enabled = true;
         }
 
@@ -208,7 +211,8 @@ namespace Game_Caro
                 try
                 {
                     socket.Send(new SocketData((int)SocketCommand.QUIT, "", new Point()));
-                } catch { }
+                }
+                catch { }
 
                 socket.CloseConnect();
                 MessageBox.Show("Đã ngắt kết nối mạng LAN", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -227,7 +231,8 @@ namespace Game_Caro
                     try
                     {
                         socket.Send(new SocketData((int)SocketCommand.QUIT, "", new Point()));
-                    } catch { }
+                    }
+                    catch { }
 
                     socket.CloseConnect();
                     MessageBox.Show("Đã ngắt kết nối mạng LAN", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -397,7 +402,7 @@ namespace Game_Caro
                     {
                         tm_CountDown.Stop();
                         EndGame();
-                    
+
                         board.PlayMode = 2;
                         socket.CloseConnect();
 
