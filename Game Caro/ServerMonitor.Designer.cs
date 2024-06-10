@@ -28,23 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.serverMonitorRtb = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
-            // richTextBox1
+            // serverMonitorRtb
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(12, 12);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(776, 503);
-            this.richTextBox1.TabIndex = 0;
-            this.richTextBox1.Text = "";
+            this.serverMonitorRtb.Location = new System.Drawing.Point(12, 12);
+            this.serverMonitorRtb.Name = "serverMonitorRtb";
+            this.serverMonitorRtb.Size = new System.Drawing.Size(776, 503);
+            this.serverMonitorRtb.TabIndex = 0;
+            this.serverMonitorRtb.Text = "";
             // 
             // ServerMonitor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 527);
-            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.serverMonitorRtb);
             this.Name = "ServerMonitor";
             this.Text = "Server Monitor";
             this.ResumeLayout(false);
@@ -53,6 +53,6 @@
 
         #endregion
 
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox serverMonitorRtb;
     }
 }

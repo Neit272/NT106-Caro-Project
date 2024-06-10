@@ -58,6 +58,12 @@
     <Compile Include="ClientInterface.Designer.cs">
       <DependentUpon>ClientInterface.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dashboard.Designer.cs">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </Compile>
     <Compile Include="ServerMonitor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,6 +91,9 @@
     <Compile Include="SocketManager.cs" />
     <EmbeddedResource Include="ClientInterface.resx">
       <DependentUpon>ClientInterface.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard.resx">
+      <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GameCaro.resx">
       <DependentUpon>GameCaro.cs</DependentUpon>
