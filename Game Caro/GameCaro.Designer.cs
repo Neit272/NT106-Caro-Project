@@ -239,7 +239,7 @@
             this.btn_Undo.TabIndex = 3;
             this.btn_Undo.Text = "Undo";
             this.btn_Undo.UseVisualStyleBackColor = false;
-            // this.btn_Undo.Click += new System.EventHandler(this.Btn_Undo_Click);
+            this.btn_Undo.Click += new System.EventHandler(this.Btn_Undo_Click);
             // 
             // pgb_CountDown
             // 
@@ -266,7 +266,7 @@
             this.btn_Redo.TabIndex = 3;
             this.btn_Redo.Text = "Redo";
             this.btn_Redo.UseVisualStyleBackColor = false;
-            // this.btn_Redo.Click += new System.EventHandler(this.Btn_Redo_Click);
+            this.btn_Redo.Click += new System.EventHandler(this.Btn_Redo_Click);
             // 
             // btn_AI
             // 
@@ -283,7 +283,7 @@
             this.btn_AI.TabIndex = 3;
             this.btn_AI.Text = "Player vs Com";
             this.btn_AI.UseVisualStyleBackColor = false;
-            // this.btn_AI.Click += new System.EventHandler(this.Btn_AI_Click);
+            this.btn_AI.Click += new System.EventHandler(this.Btn_AI_Click);
             // 
             // pictureBox1
             // 
@@ -311,7 +311,7 @@
             this.btn_SameCom.TabIndex = 3;
             this.btn_SameCom.Text = "2 Players / Com";
             this.btn_SameCom.UseVisualStyleBackColor = false;
-            // this.btn_SameCom.Click += new System.EventHandler(this.Btn_SameCom_Click);
+            this.btn_SameCom.Click += new System.EventHandler(this.Btn_SameCom_Click);
             // 
             // btn_LAN
             // 
@@ -328,7 +328,7 @@
             this.btn_LAN.TabIndex = 3;
             this.btn_LAN.Text = "2 Players in LAN";
             this.btn_LAN.UseVisualStyleBackColor = false;
-            // this.btn_LAN.Click += new System.EventHandler(this.Btn_LAN_Click);
+            this.btn_LAN.Click += new System.EventHandler(this.Btn_LAN_Click);
             // 
             // tm_CountDown
             // 
@@ -359,7 +359,7 @@
             this.btn_Send.TabIndex = 3;
             this.btn_Send.Text = "Send";
             this.btn_Send.UseVisualStyleBackColor = false;
-            // this.btn_Send.Click += new System.EventHandler(this.Btn_Send_Click);
+            this.btn_Send.Click += new System.EventHandler(this.Btn_Send_Click);
             // 
             // menuStrip
             // 
@@ -393,7 +393,7 @@
             this.newGameToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
             this.newGameToolStripMenuItem.Size = new System.Drawing.Size(218, 26);
             this.newGameToolStripMenuItem.Text = "&New Game";
-            // this.newGameToolStripMenuItem.Click += new System.EventHandler(this.NewGameToolStripMenuItem_Click);
+            this.newGameToolStripMenuItem.Click += new System.EventHandler(this.NewGameToolStripMenuItem_Click);
             // 
             // undoToolStripMenuItem
             // 
@@ -401,7 +401,7 @@
             this.undoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
             this.undoToolStripMenuItem.Size = new System.Drawing.Size(218, 26);
             this.undoToolStripMenuItem.Text = "&Undo";
-            // this.undoToolStripMenuItem.Click += new System.EventHandler(this.UndoToolStripMenuItem_Click);
+            this.undoToolStripMenuItem.Click += new System.EventHandler(this.UndoToolStripMenuItem_Click);
             // 
             // redoToolStripMenuItem
             // 
@@ -409,7 +409,7 @@
             this.redoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Y)));
             this.redoToolStripMenuItem.Size = new System.Drawing.Size(218, 26);
             this.redoToolStripMenuItem.Text = "&Redo";
-            // this.redoToolStripMenuItem.Click += new System.EventHandler(this.RedoToolStripMenuItem_Click);
+            this.redoToolStripMenuItem.Click += new System.EventHandler(this.RedoToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
@@ -422,7 +422,7 @@
             this.quitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
             this.quitToolStripMenuItem.Size = new System.Drawing.Size(218, 26);
             this.quitToolStripMenuItem.Text = "&Quit";
-            // this.quitToolStripMenuItem.Click += new System.EventHandler(this.QuitToolStripMenuItem_Click);
+            this.quitToolStripMenuItem.Click += new System.EventHandler(this.QuitToolStripMenuItem_Click);
             // 
             // optionsToolStripMenuItem
             // 
@@ -449,21 +449,21 @@
             this.ViaLANToolStripMenuItem.Name = "ViaLANToolStripMenuItem";
             this.ViaLANToolStripMenuItem.Size = new System.Drawing.Size(222, 26);
             this.ViaLANToolStripMenuItem.Text = "Via LAN";
-            // this.ViaLANToolStripMenuItem.Click += new System.EventHandler(this.ViaLANToolStripMenuItem_Click);
+            this.ViaLANToolStripMenuItem.Click += new System.EventHandler(this.ViaLANToolStripMenuItem_Click);
             // 
             // SameComToolStripMenuItem
             // 
             this.SameComToolStripMenuItem.Name = "SameComToolStripMenuItem";
             this.SameComToolStripMenuItem.Size = new System.Drawing.Size(222, 26);
             this.SameComToolStripMenuItem.Text = "On Same Computer";
-            // this.SameComToolStripMenuItem.Click += new System.EventHandler(this.SameComToolStripMenuItem_Click);
+            this.SameComToolStripMenuItem.Click += new System.EventHandler(this.SameComToolStripMenuItem_Click);
             // 
             // playerToolStripMenuItem1
             // 
             this.playerToolStripMenuItem1.Name = "playerToolStripMenuItem1";
             this.playerToolStripMenuItem1.Size = new System.Drawing.Size(150, 26);
             this.playerToolStripMenuItem1.Text = "1 Player";
-            // this.playerToolStripMenuItem1.Click += new System.EventHandler(this.PlayerToolStripMenuItem1_Click);
+            this.playerToolStripMenuItem1.Click += new System.EventHandler(this.PlayerToolStripMenuItem1_Click);
             // 
             // toolStripSeparator2
             // 
@@ -475,7 +475,7 @@
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
             this.settingsToolStripMenuItem.Size = new System.Drawing.Size(150, 26);
             this.settingsToolStripMenuItem.Text = "Settings";
-            // this.settingsToolStripMenuItem.Click += new System.EventHandler(this.SettingsToolStripMenuItem_Click);
+            this.settingsToolStripMenuItem.Click += new System.EventHandler(this.SettingsToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -494,14 +494,14 @@
             this.howToPlayToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
             this.howToPlayToolStripMenuItem.Size = new System.Drawing.Size(202, 26);
             this.howToPlayToolStripMenuItem.Text = "How to play";
-            // this.howToPlayToolStripMenuItem.Click += new System.EventHandler(this.HowToPlayToolStripMenuItem_Click);
+            this.howToPlayToolStripMenuItem.Click += new System.EventHandler(this.HowToPlayToolStripMenuItem_Click);
             // 
             // contactMeToolStripMenuItem
             // 
             this.contactMeToolStripMenuItem.Name = "contactMeToolStripMenuItem";
             this.contactMeToolStripMenuItem.Size = new System.Drawing.Size(202, 26);
             this.contactMeToolStripMenuItem.Text = "Contact me";
-            // this.contactMeToolStripMenuItem.Click += new System.EventHandler(this.ContactMeToolStripMenuItem_Click);
+            this.contactMeToolStripMenuItem.Click += new System.EventHandler(this.ContactMeToolStripMenuItem_Click);
             // 
             // toolStripSeparator3
             // 
@@ -513,7 +513,7 @@
             this.aboutThisGameToolStripMenuItem.Name = "aboutThisGameToolStripMenuItem";
             this.aboutThisGameToolStripMenuItem.Size = new System.Drawing.Size(202, 26);
             this.aboutThisGameToolStripMenuItem.Text = "About this game";
-            // this.aboutThisGameToolStripMenuItem.Click += new System.EventHandler(this.AboutThisGameToolStripMenuItem_Click);
+            this.aboutThisGameToolStripMenuItem.Click += new System.EventHandler(this.AboutThisGameToolStripMenuItem_Click);
             // 
             // txt_Chat
             // 
@@ -553,7 +553,7 @@
             this.Text = "Game Caro ";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GameCaro_FormClosing);
             this.Load += new System.EventHandler(this.GameCaro_Load);
-            // this.Shown += new System.EventHandler(this.GameCaro_Shown);
+            this.Shown += new System.EventHandler(this.GameCaro_Shown);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pb_Logo)).EndInit();
             this.panel2.ResumeLayout(false);

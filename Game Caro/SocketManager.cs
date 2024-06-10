@@ -5,93 +5,43 @@ using System.Net.NetworkInformation;
 using System.Net.Sockets;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Threading;
-using System.Collections.Generic;
 
 namespace Game_Caro
 {
     class SocketManager
     {
-        public delegate void ClientConnectedHandler(Socket client);
-        public event ClientConnectedHandler ClientConnected;
-
         #region Client
         Socket client;
-        List<Socket> clientsNotInQueue = new List<Socket>();
-        Queue<Socket> clientsInQueue = new Queue<Socket>();
-
         public bool ConnectServer()
         {
             IPEndPoint iep = new IPEndPoint(IPAddress.Parse(IP), Port);
-
             client = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
 
             try
             {
                 client.Connect(iep);
                 return true;
-            }
+            }                
             catch
             {
                 return false;
-            }
+            } 
         }
         #endregion
 
         #region Server
         Socket server;
-
-        public bool CreateServer()
+        public void CreateServer()
         {
-            try
-            {
-                IPEndPoint iep = new IPEndPoint(IPAddress.Parse(IP), Port);
-                server = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            IPEndPoint iep = new IPEndPoint(IPAddress.Parse(IP), Port);
+            server = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
 
-                server.Bind(iep);
-                server.Listen(10);
+            server.Bind(iep);
+            server.Listen(10); // Đợi kết nối client trong 10s nếu ko có thì bỏ
 
-                Thread AcceptClient = new Thread(() =>
-                {
-                    while (true)
-                    {
-                        try
-                        {
-                            Socket newClient = server.Accept();
-                            clientsNotInQueue.Add(newClient);
-                            clientsInQueue.Enqueue(newClient);
-                            ClientConnected?.Invoke(newClient); // Notify the ServerMonitor form
-
-                            if (clientsInQueue.Count >= 2)
-                            {
-                                Socket client1 = clientsInQueue.Dequeue();
-                                Socket client2 = clientsInQueue.Dequeue();
-                                StartNewGame(client1, client2);
-                            }
-                        }
-                        catch
-                        {
-                            break;
-                        }
-                    }
-                });
-                AcceptClient.IsBackground = true;
-                AcceptClient.Start();
-
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
-        }
-
-        private void StartNewGame(Socket client1, Socket client2)
-        {
-            GameCaro game1 = new GameCaro(client1, client2);
-            GameCaro game2 = new GameCaro(client2, client1);
-
-            game1.Show();
-            game2.Show();
+            Thread AcceptClient = new Thread(() => { try { client = server.Accept(); } catch { } });
+            AcceptClient.IsBackground = true; // Để khi chương trình tắt ngang thì Thread cũng tự tắt
+            AcceptClient.Start();
         }
         #endregion
 
@@ -103,27 +53,32 @@ namespace Game_Caro
 
         private bool SendData(Socket target, byte[] data)
         {
-            return target.Send(data) > 0;
+            return target.Send(data) == 1;
         }
 
         private bool ReceiveData(Socket target, byte[] data)
         {
-            return target.Receive(data) > 0;
+            return target.Receive(data) == 1;
         }
 
-        public bool Send(Socket target, object data)
+        public bool Send(object data)
         {
             byte[] sendedData = SerializeData(data);
-            return SendData(target, sendedData);
+            return SendData(client, sendedData);
         }
 
-        public object Receive(Socket target)
+        public object Receive()
         {
-            byte[] receivedData = new byte[BUFFER];
-            bool IsOk = ReceiveData(target, receivedData);
+            byte[] receivedData = new byte[BUFFER]; // 1 lần nhận tin là cỡ bao nhiêu
+            bool IsOk = ReceiveData(client, receivedData);
             return DeserializeData(receivedData);
         }
 
+        /// <summary>
+        /// Nén đối tượng thành mảng byte[]
+        /// </summary>
+        /// <param name="o"></param>
+        /// <returns></returns>
         public byte[] SerializeData(Object o)
         {
             MemoryStream ms = new MemoryStream();
@@ -132,6 +87,11 @@ namespace Game_Caro
             return ms.ToArray();
         }
 
+        /// <summary>
+        /// Giải nén mảng byte[] thành đối tượng object
+        /// </summary>
+        /// <param name="theByteArray"></param>
+        /// <returns></returns>
         public object DeserializeData(byte[] theByteArray)
         {
             MemoryStream ms = new MemoryStream(theByteArray);
@@ -140,6 +100,11 @@ namespace Game_Caro
             return bf1.Deserialize(ms);
         }
 
+        /// <summary>
+        /// Lấy ra IP V4 của card mạng đang dùng
+        /// </summary>
+        /// <param name="_type"></param>
+        /// <returns></returns>
         public string GetLocalIPv4(NetworkInterfaceType _type)
         {
             string output = "";
@@ -157,16 +122,9 @@ namespace Game_Caro
             try
             {
                 server.Close();
-                foreach (Socket client in clientsNotInQueue)
-                {
-                    client.Close();
-                }
-                foreach (Socket client in clientsInQueue)
-                {
-                    client.Close();
-                }
-            }
-            catch { }
+                client.Close();
+            } catch { }
+            
         }
         #endregion
     }
