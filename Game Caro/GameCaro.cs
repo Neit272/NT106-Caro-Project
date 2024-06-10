@@ -64,7 +64,7 @@ namespace Game_Caro
 
         private void GameCaro_Load(object sender, EventArgs e)
         {
-            lbl_About.Text = "Tic Tac Toe project in\nC# WinForms\n-- ♦ ♦ ♦ --\nWritten by: Group 13";
+            lbl_About.Text = "Tic Tac Toe project in\nC# WinForms\n-- ♦ ♦ ♦ --\nWritten by: Quân Đặng";
             tm_About.Enabled = true;
         }
 
