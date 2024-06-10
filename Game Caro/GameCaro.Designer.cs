@@ -97,7 +97,6 @@
             // tm_About
             // 
             this.tm_About.Interval = 70;
-            //this.tm_About.Tick += new System.EventHandler(this.Tm_About_Tick);
             // 
             // panel4
             // 
