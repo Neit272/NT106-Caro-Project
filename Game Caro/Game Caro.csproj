@@ -52,6 +52,18 @@
   <ItemGroup>
     <Compile Include="BtnClickEvent.cs" />
     <Compile Include="Constance.cs" />
+    <Compile Include="ClientInterface.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClientInterface.Designer.cs">
+      <DependentUpon>ClientInterface.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ServerMonitor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ServerMonitor.Designer.cs">
+      <DependentUpon>ServerMonitor.cs</DependentUpon>
+    </Compile>
     <Compile Include="GameBoard.cs" />
     <Compile Include="GameCaro.cs">
       <SubType>Form</SubType>
@@ -71,12 +83,18 @@
     </Compile>
     <Compile Include="SocketData.cs" />
     <Compile Include="SocketManager.cs" />
+    <EmbeddedResource Include="ClientInterface.resx">
+      <DependentUpon>ClientInterface.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GameCaro.resx">
       <DependentUpon>GameCaro.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ServerMonitor.resx">
+      <DependentUpon>ServerMonitor.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">

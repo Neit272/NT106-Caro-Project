@@ -5,6 +5,8 @@ using System.Net.NetworkInformation;
 using System.Net.Sockets;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Threading;
+using System.Windows.Forms;
+using System.Collections.Generic;
 
 namespace Game_Caro
 {
@@ -12,20 +14,64 @@ namespace Game_Caro
     {
         #region Client
         Socket client;
+        List<Socket> clientsNotInQueue = new List<Socket>();
+        List<Socket> clientsInQueue = new List<Socket>();
+
         public bool ConnectServer()
         {
             IPEndPoint iep = new IPEndPoint(IPAddress.Parse(IP), Port);
-            client = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
 
-            try
+            if (IsServer)
             {
-                client.Connect(iep);
+                server = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+                server.Bind(iep);
+                server.Listen(10);
+                Thread AcceptClient = new Thread(() =>
+                {
+                    while (true)
+                    {
+                        try
+                        {
+                            Socket newClient = server.Accept();
+                            clientsNotInQueue.Add(newClient);
+                        }
+                        catch
+                        {
+                            break;
+                        }
+                    }
+                });
+                AcceptClient.IsBackground = true;
+                AcceptClient.Start();
+
+                Form serverMonitor = new ServerMonitor();
+                serverMonitor.Show();
+
+                IsServer = false;
                 return true;
-            }                
-            catch
+            }
+            else
             {
-                return false;
-            } 
+                client = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+
+                try
+                {
+                    client.Connect(iep);
+
+                    ClientInterface clientInterface = new ClientInterface();
+
+                    clientInterface.Invoke(new Action(() =>
+                    {
+                        clientInterface.Show();
+                    }));
+
+                    return true;
+                }
+                catch
+                {
+                    return false;
+                }
+            }
         }
         #endregion
 
@@ -37,10 +83,24 @@ namespace Game_Caro
             server = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
 
             server.Bind(iep);
-            server.Listen(10); // Đợi kết nối client trong 10s nếu ko có thì bỏ
+            server.Listen(10);
 
-            Thread AcceptClient = new Thread(() => { try { client = server.Accept(); } catch { } });
-            AcceptClient.IsBackground = true; // Để khi chương trình tắt ngang thì Thread cũng tự tắt
+            Thread AcceptClient = new Thread(() =>
+            {
+                while (true)
+                {
+                    try
+                    {
+                        Socket newClient = server.Accept();
+                        clientsNotInQueue.Add(newClient);
+                    }
+                    catch
+                    {
+                        break;
+                    }
+                }
+            });
+            AcceptClient.IsBackground = true;
             AcceptClient.Start();
         }
         #endregion
@@ -61,16 +121,16 @@ namespace Game_Caro
             return target.Receive(data) == 1;
         }
 
-        public bool Send(object data)
+        public bool Send(Socket target, object data)
         {
             byte[] sendedData = SerializeData(data);
-            return SendData(client, sendedData);
+            return SendData(target, sendedData);
         }
 
-        public object Receive()
+        public object Receive(Socket target)
         {
             byte[] receivedData = new byte[BUFFER]; // 1 lần nhận tin là cỡ bao nhiêu
-            bool IsOk = ReceiveData(client, receivedData);
+            bool IsOk = ReceiveData(target, receivedData);
             return DeserializeData(receivedData);
         }
 
@@ -122,9 +182,16 @@ namespace Game_Caro
             try
             {
                 server.Close();
-                client.Close();
-            } catch { }
-            
+                foreach (Socket client in clientsNotInQueue)
+                {
+                    client.Close();
+                }
+                foreach (Socket client in clientsInQueue)
+                {
+                    client.Close();
+                }
+            }
+            catch { }
         }
         #endregion
     }
