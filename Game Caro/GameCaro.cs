@@ -32,24 +32,20 @@ namespace Game_Caro
 
             txt_Chat.Text = "";
 
-            // Set the IP and port of the opponent
             socket.IP = opponentIpAddress;
             socket.Port = opponentPort;
 
-            // Connect to the opponent
             if (!socket.ConnectServer())
             {
                 socket.IsServer = true;
                 pn_GameBoard.Enabled = true;
                 socket.CreateServer();
-                MessageBox.Show("Bạn đang là Server", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
                 socket.IsServer = false;
                 pn_GameBoard.Enabled = false;
                 Listen();
-                MessageBox.Show("Kết nối thành công !!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
             NewGame();
