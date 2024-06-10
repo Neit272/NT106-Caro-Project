@@ -31,24 +31,16 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GameCaro));
             this.pn_GameBoard = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.pb_Logo = new System.Windows.Forms.PictureBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.Grb_About = new System.Windows.Forms.GroupBox();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.lbl_About = new System.Windows.Forms.Label();
             this.txt_PlayerName = new System.Windows.Forms.TextBox();
-            this.pb_Avatar = new System.Windows.Forms.PictureBox();
             this.tm_About = new System.Windows.Forms.Timer(this.components);
             this.panel4 = new System.Windows.Forms.Panel();
-            this.txt_IP = new System.Windows.Forms.TextBox();
             this.btn_Undo = new System.Windows.Forms.Button();
-            this.pgb_CountDown = new System.Windows.Forms.ProgressBar();
             this.btn_Redo = new System.Windows.Forms.Button();
             this.btn_AI = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btn_SameCom = new System.Windows.Forms.Button();
             this.btn_LAN = new System.Windows.Forms.Button();
+            this.txt_IP = new System.Windows.Forms.TextBox();
+            this.pgb_CountDown = new System.Windows.Forms.ProgressBar();
             this.tm_CountDown = new System.Windows.Forms.Timer(this.components);
             this.txt_Message = new System.Windows.Forms.TextBox();
             this.btn_Send = new System.Windows.Forms.Button();
@@ -72,14 +64,7 @@
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.aboutThisGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.txt_Chat = new System.Windows.Forms.TextBox();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_Logo)).BeginInit();
-            this.panel2.SuspendLayout();
-            this.Grb_About.SuspendLayout();
-            this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_Avatar)).BeginInit();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -88,141 +73,45 @@
             this.pn_GameBoard.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pn_GameBoard.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.pn_GameBoard.BackColor = System.Drawing.Color.White;
             this.pn_GameBoard.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pn_GameBoard.Location = new System.Drawing.Point(17, 50);
             this.pn_GameBoard.Name = "pn_GameBoard";
             this.pn_GameBoard.Size = new System.Drawing.Size(840, 770);
             this.pn_GameBoard.TabIndex = 0;
             // 
-            // panel1
-            // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.Controls.Add(this.pb_Logo);
-            this.panel1.Location = new System.Drawing.Point(875, 50);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(400, 126);
-            this.panel1.TabIndex = 1;
-            // 
-            // pb_Logo
-            // 
-            this.pb_Logo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pb_Logo.BackColor = System.Drawing.Color.White;
-            this.pb_Logo.BackgroundImage = global::Game_Caro.Properties.Resources.logo_kmin;
-            this.pb_Logo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pb_Logo.InitialImage = null;
-            this.pb_Logo.Location = new System.Drawing.Point(0, 0);
-            this.pb_Logo.Name = "pb_Logo";
-            this.pb_Logo.Size = new System.Drawing.Size(400, 126);
-            this.pb_Logo.TabIndex = 0;
-            this.pb_Logo.TabStop = false;
-            // 
-            // panel2
-            // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel2.BackColor = System.Drawing.Color.Transparent;
-            this.panel2.Controls.Add(this.Grb_About);
-            this.panel2.Controls.Add(this.txt_PlayerName);
-            this.panel2.Controls.Add(this.pb_Avatar);
-            this.panel2.Location = new System.Drawing.Point(875, 183);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(400, 180);
-            this.panel2.TabIndex = 1;
-            // 
-            // Grb_About
-            // 
-            this.Grb_About.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Grb_About.BackColor = System.Drawing.Color.Transparent;
-            this.Grb_About.Controls.Add(this.panel3);
-            this.Grb_About.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Grb_About.ForeColor = System.Drawing.Color.Lime;
-            this.Grb_About.Location = new System.Drawing.Point(207, 0);
-            this.Grb_About.Name = "Grb_About";
-            this.Grb_About.Size = new System.Drawing.Size(193, 144);
-            this.Grb_About.TabIndex = 0;
-            this.Grb_About.TabStop = false;
-            this.Grb_About.Text = "About";
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.lbl_About);
-            this.panel3.Location = new System.Drawing.Point(0, 21);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(193, 117);
-            this.panel3.TabIndex = 0;
-            // 
-            // lbl_About
-            // 
-            this.lbl_About.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_About.ForeColor = System.Drawing.Color.White;
-            this.lbl_About.Location = new System.Drawing.Point(0, 0);
-            this.lbl_About.Name = "lbl_About";
-            this.lbl_About.Size = new System.Drawing.Size(193, 111);
-            this.lbl_About.TabIndex = 4;
-            this.lbl_About.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // txt_PlayerName
             // 
             this.txt_PlayerName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_PlayerName.BackColor = System.Drawing.Color.SpringGreen;
+            this.txt_PlayerName.BackColor = System.Drawing.Color.HotPink;
             this.txt_PlayerName.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_PlayerName.ForeColor = System.Drawing.Color.DarkBlue;
-            this.txt_PlayerName.Location = new System.Drawing.Point(207, 150);
+            this.txt_PlayerName.Location = new System.Drawing.Point(875, 50);
             this.txt_PlayerName.Name = "txt_PlayerName";
             this.txt_PlayerName.ReadOnly = true;
             this.txt_PlayerName.Size = new System.Drawing.Size(193, 30);
             this.txt_PlayerName.TabIndex = 1;
-            this.txt_PlayerName.Text = "Quân Đặng";
+            this.txt_PlayerName.Text = "Player 1";
             this.txt_PlayerName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // pb_Avatar
-            // 
-            this.pb_Avatar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pb_Avatar.BackgroundImage = global::Game_Caro.Properties.Resources.Quan;
-            this.pb_Avatar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pb_Avatar.Location = new System.Drawing.Point(0, 0);
-            this.pb_Avatar.Name = "pb_Avatar";
-            this.pb_Avatar.Size = new System.Drawing.Size(199, 180);
-            this.pb_Avatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pb_Avatar.TabIndex = 0;
-            this.pb_Avatar.TabStop = false;
             // 
             // tm_About
             // 
             this.tm_About.Interval = 70;
-            this.tm_About.Tick += new System.EventHandler(this.Tm_About_Tick);
+            //this.tm_About.Tick += new System.EventHandler(this.Tm_About_Tick);
             // 
             // panel4
             // 
             this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.panel4.BackColor = System.Drawing.Color.Transparent;
-            this.panel4.Controls.Add(this.txt_IP);
             this.panel4.Controls.Add(this.btn_Undo);
-            this.panel4.Controls.Add(this.pgb_CountDown);
             this.panel4.Controls.Add(this.btn_Redo);
             this.panel4.Controls.Add(this.btn_AI);
-            this.panel4.Controls.Add(this.pictureBox1);
             this.panel4.Controls.Add(this.btn_SameCom);
             this.panel4.Controls.Add(this.btn_LAN);
-            this.panel4.Location = new System.Drawing.Point(875, 370);
+            this.panel4.Location = new System.Drawing.Point(875, 133);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(400, 170);
+            this.panel4.Size = new System.Drawing.Size(400, 209);
             this.panel4.TabIndex = 1;
-            // 
-            // txt_IP
-            // 
-            this.txt_IP.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_IP.BackColor = System.Drawing.Color.White;
-            this.txt_IP.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_IP.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_IP.ForeColor = System.Drawing.Color.Blue;
-            this.txt_IP.Location = new System.Drawing.Point(207, 1);
-            this.txt_IP.Name = "txt_IP";
-            this.txt_IP.Size = new System.Drawing.Size(193, 30);
-            this.txt_IP.TabIndex = 1;
-            this.txt_IP.Text = "127.0.0.1";
-            this.txt_IP.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // btn_Undo
             // 
@@ -233,23 +122,13 @@
             this.btn_Undo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_Undo.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Undo.ForeColor = System.Drawing.Color.White;
-            this.btn_Undo.Location = new System.Drawing.Point(0, 130);
+            this.btn_Undo.Location = new System.Drawing.Point(6, 150);
             this.btn_Undo.Name = "btn_Undo";
-            this.btn_Undo.Size = new System.Drawing.Size(96, 40);
+            this.btn_Undo.Size = new System.Drawing.Size(187, 40);
             this.btn_Undo.TabIndex = 3;
             this.btn_Undo.Text = "Undo";
             this.btn_Undo.UseVisualStyleBackColor = false;
             this.btn_Undo.Click += new System.EventHandler(this.Btn_Undo_Click);
-            // 
-            // pgb_CountDown
-            // 
-            this.pgb_CountDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pgb_CountDown.BackColor = System.Drawing.Color.Lime;
-            this.pgb_CountDown.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.pgb_CountDown.Location = new System.Drawing.Point(0, 1);
-            this.pgb_CountDown.Name = "pgb_CountDown";
-            this.pgb_CountDown.Size = new System.Drawing.Size(199, 30);
-            this.pgb_CountDown.TabIndex = 2;
             // 
             // btn_Redo
             // 
@@ -260,9 +139,9 @@
             this.btn_Redo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_Redo.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Redo.ForeColor = System.Drawing.Color.White;
-            this.btn_Redo.Location = new System.Drawing.Point(103, 130);
+            this.btn_Redo.Location = new System.Drawing.Point(207, 153);
             this.btn_Redo.Name = "btn_Redo";
-            this.btn_Redo.Size = new System.Drawing.Size(96, 40);
+            this.btn_Redo.Size = new System.Drawing.Size(190, 40);
             this.btn_Redo.TabIndex = 3;
             this.btn_Redo.Text = "Redo";
             this.btn_Redo.UseVisualStyleBackColor = false;
@@ -277,24 +156,13 @@
             this.btn_AI.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_AI.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_AI.ForeColor = System.Drawing.Color.White;
-            this.btn_AI.Location = new System.Drawing.Point(207, 130);
+            this.btn_AI.Location = new System.Drawing.Point(6, 104);
             this.btn_AI.Name = "btn_AI";
-            this.btn_AI.Size = new System.Drawing.Size(193, 40);
+            this.btn_AI.Size = new System.Drawing.Size(391, 40);
             this.btn_AI.TabIndex = 3;
             this.btn_AI.Text = "Player vs Com";
             this.btn_AI.UseVisualStyleBackColor = false;
             this.btn_AI.Click += new System.EventHandler(this.Btn_AI_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.BackgroundImage = global::Game_Caro.Properties.Resources.banner;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 38);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(199, 86);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // btn_SameCom
             // 
@@ -305,9 +173,9 @@
             this.btn_SameCom.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_SameCom.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_SameCom.ForeColor = System.Drawing.Color.White;
-            this.btn_SameCom.Location = new System.Drawing.Point(207, 84);
+            this.btn_SameCom.Location = new System.Drawing.Point(6, 58);
             this.btn_SameCom.Name = "btn_SameCom";
-            this.btn_SameCom.Size = new System.Drawing.Size(193, 40);
+            this.btn_SameCom.Size = new System.Drawing.Size(391, 40);
             this.btn_SameCom.TabIndex = 3;
             this.btn_SameCom.Text = "2 Players / Com";
             this.btn_SameCom.UseVisualStyleBackColor = false;
@@ -322,13 +190,37 @@
             this.btn_LAN.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_LAN.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_LAN.ForeColor = System.Drawing.Color.White;
-            this.btn_LAN.Location = new System.Drawing.Point(207, 38);
+            this.btn_LAN.Location = new System.Drawing.Point(6, 12);
             this.btn_LAN.Name = "btn_LAN";
-            this.btn_LAN.Size = new System.Drawing.Size(193, 40);
+            this.btn_LAN.Size = new System.Drawing.Size(391, 40);
             this.btn_LAN.TabIndex = 3;
             this.btn_LAN.Text = "2 Players in LAN";
             this.btn_LAN.UseVisualStyleBackColor = false;
             this.btn_LAN.Click += new System.EventHandler(this.Btn_LAN_Click);
+            // 
+            // txt_IP
+            // 
+            this.txt_IP.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt_IP.BackColor = System.Drawing.Color.White;
+            this.txt_IP.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_IP.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_IP.ForeColor = System.Drawing.Color.Blue;
+            this.txt_IP.Location = new System.Drawing.Point(1082, 51);
+            this.txt_IP.Name = "txt_IP";
+            this.txt_IP.Size = new System.Drawing.Size(193, 30);
+            this.txt_IP.TabIndex = 1;
+            this.txt_IP.Text = "127.0.0.1";
+            this.txt_IP.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // pgb_CountDown
+            // 
+            this.pgb_CountDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pgb_CountDown.BackColor = System.Drawing.Color.Lime;
+            this.pgb_CountDown.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.pgb_CountDown.Location = new System.Drawing.Point(875, 97);
+            this.pgb_CountDown.Name = "pgb_CountDown";
+            this.pgb_CountDown.Size = new System.Drawing.Size(400, 30);
+            this.pgb_CountDown.TabIndex = 2;
             // 
             // tm_CountDown
             // 
@@ -338,7 +230,7 @@
             // 
             this.txt_Message.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_Message.Font = new System.Drawing.Font("Arial", 12F);
-            this.txt_Message.Location = new System.Drawing.Point(875, 789);
+            this.txt_Message.Location = new System.Drawing.Point(875, 788);
             this.txt_Message.Name = "txt_Message";
             this.txt_Message.Size = new System.Drawing.Size(323, 30);
             this.txt_Message.TabIndex = 4;
@@ -522,29 +414,29 @@
             this.txt_Chat.BackColor = System.Drawing.Color.White;
             this.txt_Chat.Font = new System.Drawing.Font("Arial", 11F);
             this.txt_Chat.ForeColor = System.Drawing.Color.DarkBlue;
-            this.txt_Chat.Location = new System.Drawing.Point(875, 547);
+            this.txt_Chat.Location = new System.Drawing.Point(875, 360);
             this.txt_Chat.Multiline = true;
             this.txt_Chat.Name = "txt_Chat";
             this.txt_Chat.ReadOnly = true;
             this.txt_Chat.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txt_Chat.Size = new System.Drawing.Size(400, 235);
+            this.txt_Chat.Size = new System.Drawing.Size(400, 422);
             this.txt_Chat.TabIndex = 4;
-            this.txt_Chat.Text = "- Player 1: E dạo này ổn ko còn đi làm ở công ty cũ";
+            this.txt_Chat.Text = "- Player 1: Hello";
             // 
             // GameCaro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.PowderBlue;
-            this.BackgroundImage = global::Game_Caro.Properties.Resources.background;
+            this.BackColor = System.Drawing.Color.Pink;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1294, 853);
+            this.Controls.Add(this.txt_IP);
+            this.Controls.Add(this.pgb_CountDown);
+            this.Controls.Add(this.txt_PlayerName);
             this.Controls.Add(this.txt_Chat);
             this.Controls.Add(this.txt_Message);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.btn_Send);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.pn_GameBoard);
             this.Controls.Add(this.menuStrip);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -554,16 +446,7 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GameCaro_FormClosing);
             this.Load += new System.EventHandler(this.GameCaro_Load);
             this.Shown += new System.EventHandler(this.GameCaro_Shown);
-            this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pb_Logo)).EndInit();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            this.Grb_About.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pb_Avatar)).EndInit();
             this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.ResumeLayout(false);
@@ -600,16 +483,9 @@
         #endregion
 
         #region Panel 1
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.PictureBox pb_Logo;
         #endregion
 
         #region Panel 2 + 3
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.PictureBox pb_Avatar;
-        private System.Windows.Forms.GroupBox Grb_About;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label lbl_About;
         private System.Windows.Forms.Timer tm_About;
         private System.Windows.Forms.TextBox txt_PlayerName;
         #endregion
@@ -618,7 +494,6 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Timer tm_CountDown;
         private System.Windows.Forms.ProgressBar pgb_CountDown;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox txt_IP;
         private System.Windows.Forms.Button btn_LAN;
         private System.Windows.Forms.Button btn_SameCom;

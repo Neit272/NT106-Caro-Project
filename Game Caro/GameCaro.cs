@@ -18,7 +18,7 @@ namespace Game_Caro
             InitializeComponent();
             Control.CheckForIllegalCrossThreadCalls = false;
 
-            board = new GameBoard(pn_GameBoard, txt_PlayerName, pb_Avatar);            
+            board = new GameBoard(pn_GameBoard, txt_PlayerName);            
             board.PlayerClicked += Board_PlayerClicked;
             board.GameOver += Board_GameOver;
 
@@ -64,7 +64,7 @@ namespace Game_Caro
 
         private void GameCaro_Load(object sender, EventArgs e)
         {
-            lbl_About.Text = "Tic Tac Toe project in\nC# WinForms\n-- ♦ ♦ ♦ --\nWritten by: Group 13";
+            //lbl_About.Text = "Tic Tac Toe project in\nC# WinForms\n-- ♦ ♦ ♦ --\nWritten by: Quân Đặng";
             tm_About.Enabled = true;
         }
 
@@ -130,13 +130,13 @@ namespace Game_Caro
             }                                    
         }
 
-        private void Tm_About_Tick(object sender, EventArgs e)
+        /*private void Tm_About_Tick(object sender, EventArgs e)
         {
             lbl_About.Location = new Point(lbl_About.Location.X, lbl_About.Location.Y - 2);
 
             if (lbl_About.Location.Y + lbl_About.Height < 0)
                 lbl_About.Location = new Point(lbl_About.Location.X, Grb_About.Height - 10);
-        }
+        }*/
 
         #region MenuStrip
         private void NewGameToolStripMenuItem_Click(object sender, EventArgs e)
