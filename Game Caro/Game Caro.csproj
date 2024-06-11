@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>images\icon.ico</ApplicationIcon>
+    <ApplicationIcon>caro_icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -124,6 +124,7 @@
     <None Include="images\O.png" />
     <None Include="images\forward.png" />
     <None Include="images\banner UIT.png" />
+    <Content Include="caro_icon.ico" />
     <Content Include="images\caro_icon.ico" />
     <Content Include="images\icon.ico" />
     <None Include="images\three-in-a-row.png" />
