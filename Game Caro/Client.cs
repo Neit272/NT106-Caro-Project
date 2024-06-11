@@ -111,7 +111,7 @@ namespace Game_Caro
                             var opponentIpAddress = infoParts[1];
                             var opponentPort = int.Parse(infoParts[2]);
 
-                            GameCaro gameCaro = new GameCaro(opponentUsername, opponentIpAddress, opponentPort); //opponentUsername, opponentIpAddress, opponentPort
+                            GameCaro gameCaro = new GameCaro(); //opponentUsername, opponentIpAddress, opponentPort
                             gameCaro.Show();
                         }
                     }

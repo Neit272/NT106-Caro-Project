@@ -13,7 +13,7 @@ namespace Game_Caro
         SocketManager socket;
         string PlayerName;
 
-        public GameCaro(string opponentUsername, string opponentIpAddress, int opponentPort)
+        public GameCaro()
         {
             InitializeComponent();
             Control.CheckForIllegalCrossThreadCalls = false;
@@ -31,22 +31,6 @@ namespace Game_Caro
             socket = new SocketManager();
 
             txt_Chat.Text = "";
-
-            socket.IP = opponentIpAddress;
-            socket.Port = opponentPort;
-
-            if (!socket.ConnectServer())
-            {
-                socket.IsServer = true;
-                pn_GameBoard.Enabled = true;
-                socket.CreateServer();
-            }
-            else
-            {
-                socket.IsServer = false;
-                pn_GameBoard.Enabled = false;
-                Listen();
-            }
 
             NewGame();
         }
